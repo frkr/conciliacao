@@ -1,0 +1,18 @@
+query selectCarteiras {
+  description: "Selecionar todas as carteiras"
+  statement:
+      SELECT conciliacao.Carteira
+}
+
+query selectCarteiraById {
+  description: "Selecionar carteira por ID"
+  statement:
+      SELECT conciliacao.Carteira
+          WHERE (carteiraId==_$carteiraId)
+}
+
+query selectMovimentos {
+  description: "Selecionar todos os movimentos"
+  statement:
+      SELECT conciliacao.Movimento
+}

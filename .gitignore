@@ -1,0 +1,5 @@
+composer-logs/
+dist/
+node_modules/
+out/
+*.bna

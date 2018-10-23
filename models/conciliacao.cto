@@ -1,0 +1,32 @@
+namespace conciliacao
+
+asset Carteira identified by carteiraId {
+  o String carteiraId
+  o String[] palavrasChave
+  o String anexo
+  o Double saldo
+  --> Participante[] participantes
+}
+
+participant Participante identified by participanteId {
+  o String participanteId
+  o String descricao
+  o String anexo
+}
+
+enum Tipo {
+  o DEBITO
+  o CREDITO
+}
+
+transaction Movimento {
+  --> Carteira carteira
+  --> Participante participante
+  o Tipo tipo
+  o Double valor
+  o String anexo
+}
+
+event Movimentacao {
+  --> Carteira carteira
+}

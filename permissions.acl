@@ -1,0 +1,7 @@
+rule Default {
+    description: "Allow all"
+    participant: "ANY"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
