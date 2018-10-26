@@ -1,18 +1,21 @@
-query selectCarteiras {
-  description: "Selecionar todas as carteiras"
-  statement:
-      SELECT conciliacao.Carteira
-}
-
-query selectCarteiraById {
-  description: "Selecionar carteira por ID"
-  statement:
-      SELECT conciliacao.Carteira
-          WHERE (carteiraId==_$carteiraId)
-}
-
-query selectMovimentos {
-  description: "Selecionar todos os movimentos"
+query selectMovimentosByCarteira {
+  description: "Selecionar todos os movimentos da Carteira"
   statement:
       SELECT conciliacao.Movimento
+          WHERE (carteira==_$carteira)
+}
+
+query selectMovimentosByCarteiraAndParticipante {
+  description: "Selecionar todos os movimentos da Carteira por Participante"
+  statement:
+      SELECT conciliacao.Movimento
+          WHERE (carteira==_$carteira
+            AND participante==_$participante)
+}
+
+query selectCarteirasAcima {
+  description: "Selecionar Carteiras acima de um saldo"
+  statement:
+      SELECT conciliacao.Carteira
+          WHERE (_$saldo >= saldo)
 }
